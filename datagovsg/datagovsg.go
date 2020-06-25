@@ -1,6 +1,9 @@
 package datagovsg
 
 import (
+	"encoding/json"
+	"errors"
+	"fmt"
 	"io/ioutil"
 	"net/http"
 )
@@ -9,6 +12,23 @@ const (
 	// The base URL for Data.gov.sg API.
 	baseURL = "https://api.data.gov.sg/v1"
 )
+
+var (
+	// ErrBadRequest is raised when there are errors in request.
+	ErrBadRequest = errors.New("bad request")
+)
+
+// APIInfo contains information about the API (from Data.gov.sg)
+type APIInfo struct {
+	Status string `json:"status"`
+}
+
+// ErrorResponse represents the error response returned
+// by the API.
+type ErrorResponse struct {
+	Code    string `json:"code"`
+	Message string `json:"message"`
+}
 
 // Client is a simple http.Client wrapper.
 // TODO: Use http.DefaultClient?
@@ -45,10 +65,14 @@ func (c *Client) Get(url string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	return body, nil
-}
 
-// APIInfo contains information about the API (from Data.gov.sg)
-type APIInfo struct {
-	Status string `json:"status"`
+	// Check error
+	switch resp.StatusCode {
+	case http.StatusBadRequest:
+		var e ErrorResponse
+		json.Unmarshal(body, &e)
+		return nil, fmt.Errorf("%w: %v", ErrBadRequest, e.Message)
+	}
+
+	return body, nil
 }
