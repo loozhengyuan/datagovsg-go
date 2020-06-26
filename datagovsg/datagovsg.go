@@ -14,8 +14,14 @@ const (
 )
 
 var (
-	// ErrBadRequest is raised when there are errors in request.
-	ErrBadRequest = errors.New("bad request")
+	// ErrResponseNotOk is returned by Client.Get calls when the
+	// the API returns a response with a non-200 HTTP status code.
+	ErrResponseNotOk = errors.New("datagovsg: response not ok")
+
+	// ErrParseErrorMessageFailure is returned by Client.Get calls
+	// when the API call is not successful but there the error
+	// message could not be successfully parsed.
+	ErrParseErrorMessageFailure = errors.New("datagovsg: error parsing error message")
 )
 
 // APIInfo contains information about the API (from Data.gov.sg)
@@ -66,12 +72,13 @@ func (c *Client) Get(url string) ([]byte, error) {
 		return nil, err
 	}
 
-	// Check error
-	switch resp.StatusCode {
-	case http.StatusBadRequest:
+	// Handle non-success HTTP responses
+	if resp.StatusCode != http.StatusOK {
 		var e ErrorResponse
-		json.Unmarshal(body, &e)
-		return nil, fmt.Errorf("%w: %v", ErrBadRequest, e.Message)
+		if err := json.Unmarshal(body, &e); err != nil {
+			return nil, fmt.Errorf("%w: %v", ErrParseErrorMessageFailure, string(body))
+		}
+		return nil, fmt.Errorf("%w: %v", ErrResponseNotOk, e.Message)
 	}
 
 	return body, nil

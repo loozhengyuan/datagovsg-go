@@ -1,20 +1,29 @@
 package datagovsg
 
 import (
-	"fmt"
+	"errors"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 )
 
-func TestClient_Get_basic(t *testing.T) {
+func TestClientGet(t *testing.T) {
 	// Create test cases
 	cases := []struct {
 		name   string
 		status int
 		body   string
+		err    error
 	}{
-		{"http200", http.StatusOK, "OK"},
+		{"http200", http.StatusOK, "OK", nil},
+
+		// Returns error for non-2xx http status codes
+		{"http301_responseNotOk", http.StatusPermanentRedirect, `{"message":"permanent redirect"}`, ErrResponseNotOk},
+		{"http400_responseNotOk", http.StatusBadRequest, `{"message":"bad request"}`, ErrResponseNotOk},
+
+		// Returns error when parsing error messages for non-2xx http status codes
+		{"http301_parseErrorMessageFailure", http.StatusPermanentRedirect, `"message":"permanent redirect"`, ErrParseErrorMessageFailure},
+		{"http400_parseErrorMessageFailure", http.StatusBadRequest, `{message: bad request}`, ErrParseErrorMessageFailure},
 	}
 
 	// Run test cases
@@ -33,50 +42,15 @@ func TestClient_Get_basic(t *testing.T) {
 			// Execute request
 			client := NewClient()
 			got, err := client.Get(server.URL)
-			if err != nil {
-				t.Errorf("expected no errors but got: %v", err)
-			}
 			want := tc.body
-			if string(got) != want {
-				t.Errorf("got %+v want %+v", string(got), want)
+
+			// Assert error value
+			if !errors.Is(err, tc.err) {
+				t.Errorf("expected error '%v' but got: %v", tc.err, err)
 			}
-		})
-	}
-}
 
-func TestClient_Get_errorInResponse(t *testing.T) {
-	// Create test cases
-	cases := []struct {
-		name   string
-		status int
-		err    string
-	}{
-		{"http400_1", http.StatusBadRequest, "invalid datetime format"},
-		{"http400_2", http.StatusBadRequest, "invalid request format"},
-	}
-
-	// Run test cases
-	for _, tc := range cases {
-		tc := tc // capture range variable
-		t.Run(tc.name, func(t *testing.T) {
-			t.Parallel()
-
-			// Format body
-			body := fmt.Sprintf(`{"message":"%s"}`, tc.err)
-
-			// Mock HTTP server
-			handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-				w.WriteHeader(tc.status)
-				w.Write([]byte(body))
-			})
-			server := httptest.NewServer(handler)
-
-			// Execute request
-			client := NewClient()
-			_, err := client.Get(server.URL)
-			got := err.Error()
-			want := fmt.Sprintf("%v: %v", ErrBadRequest, tc.err)
-			if got != want {
+			// Assert response body if non-error responses
+			if got != nil && string(got) != want {
 				t.Errorf("got %+v want %+v", string(got), want)
 			}
 		})
