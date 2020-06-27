@@ -48,13 +48,20 @@ type CarparkAvailabilityCarparkInfo struct {
 
 // GetCarparkAvailability returns the lot availability across all carparks
 // in Singapore.
-func (c *Client) GetCarparkAvailability() (*CarparkAvailability, error) {
+func (c *Client) GetCarparkAvailability(options ...*QueryOption) (*CarparkAvailability, error) {
 	// Parse URL
 	path := "/v1/transport/carpark-availability/"
 	u, err := url.Parse(c.BaseURL + path)
 	if err != nil {
 		return nil, err
 	}
+
+	// Set query parameters
+	v := url.Values{}
+	for _, option := range options {
+		v.Add(option.Key, option.Value)
+	}
+	u.RawQuery = v.Encode()
 
 	// Execute request
 	b, err := c.Get(u)

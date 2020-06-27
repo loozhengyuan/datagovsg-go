@@ -65,13 +65,20 @@ type TrafficImagesCameraImageMetadata struct {
 
 // GetTrafficImages returns the latest images from traffic
 // cameras all around Singapore.
-func (c *Client) GetTrafficImages() (*TrafficImages, error) {
+func (c *Client) GetTrafficImages(options ...*QueryOption) (*TrafficImages, error) {
 	// Parse URL
 	path := "/v1/transport/traffic-images/"
 	u, err := url.Parse(c.BaseURL + path)
 	if err != nil {
 		return nil, err
 	}
+
+	// Set query parameters
+	v := url.Values{}
+	for _, option := range options {
+		v.Add(option.Key, option.Value)
+	}
+	u.RawQuery = v.Encode()
 
 	// Execute request
 	b, err := c.Get(u)

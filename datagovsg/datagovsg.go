@@ -84,3 +84,9 @@ func (c *Client) Get(u *url.URL) ([]byte, error) {
 
 	return body, nil
 }
+
+// QueryOption represents a key-value pair of query parameter.
+type QueryOption struct {
+	Key   string
+	Value string
+}
