@@ -29,7 +29,7 @@ type CarparkAvailabilityCarpark struct {
 	UpdateDateTime string `json:"update_datetime"`
 
 	// Availability information of carpark
-	CarparkInfo CarparkAvailabilityCarparkInfo `json:"carpark_info"`
+	CarparkInfo []CarparkAvailabilityCarparkInfo `json:"carpark_info"`
 }
 
 // CarparkAvailabilityCarparkInfo represents the availability information
