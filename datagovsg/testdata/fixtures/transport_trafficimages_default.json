@@ -1,0 +1,40 @@
+{
+    "api_info": {
+        "status": "healthy"
+    },
+    "items": [
+        {
+            "timestamp": "2020-06-27T14:12:59+08:00",
+            "cameras": [
+                {
+                    "timestamp": "2020-06-27T14:12:39+08:00",
+                    "image": "https://images.data.gov.sg/api/traffic-images/2020/06/eac2a622-ea61-49ae-a8e1-c899dda0328d.jpg",
+                    "location": {
+                        "latitude": 1.323604823,
+                        "longitude": 103.8587802
+                    },
+                    "camera_id": "1701",
+                    "image_metadata": {
+                        "height": 480,
+                        "width": 640,
+                        "md5": "b6f50862dff928bdc34778488c0bb360"
+                    }
+                },
+                {
+                    "timestamp": "2020-06-27T14:12:39+08:00",
+                    "image": "https://images.data.gov.sg/api/traffic-images/2020/06/463203f1-9c23-452a-9a8e-9b8b9e03c65e.jpg",
+                    "location": {
+                        "latitude": 1.34355015,
+                        "longitude": 103.8601984
+                    },
+                    "camera_id": "1702",
+                    "image_metadata": {
+                        "height": 480,
+                        "width": 640,
+                        "md5": "4b2aacf0a32192045bf5ab7be9c66c0e"
+                    }
+                }
+            ]
+        }
+    ]
+}

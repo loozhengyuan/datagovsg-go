@@ -1,0 +1,34 @@
+{
+    "api_info": {
+        "status": "healthy"
+    },
+    "items": [
+        {
+            "timestamp": "2020-06-27T15:51:27+08:00",
+            "carpark_data": [
+                {
+                    "carpark_info": [
+                        {
+                            "total_lots": "91",
+                            "lot_type": "C",
+                            "lots_available": "0"
+                        }
+                    ],
+                    "carpark_number": "HE12",
+                    "update_datetime": "2020-06-27T15:51:02"
+                },
+                {
+                    "carpark_info": [
+                        {
+                            "total_lots": "583",
+                            "lot_type": "C",
+                            "lots_available": "124"
+                        }
+                    ],
+                    "carpark_number": "HLM",
+                    "update_datetime": "2020-06-27T15:50:51"
+                }
+            ]
+        }
+    ]
+}
