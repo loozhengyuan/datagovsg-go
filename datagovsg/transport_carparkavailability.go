@@ -48,11 +48,11 @@ type CarparkAvailabilityCarparkInfo struct {
 // GetCarparkAvailability returns the lot availability across all carparks
 // in Singapore.
 func (c *Client) GetCarparkAvailability() (*CarparkAvailability, error) {
-	// Set url
-	url := c.BaseURL + "/transport/carpark-availability"
+	// Set url path
+	path := "/v1/transport/carpark-availability/"
 
 	// Execute request
-	b, err := c.Get(url)
+	b, err := c.Get(path)
 	if err != nil {
 		return nil, err
 	}

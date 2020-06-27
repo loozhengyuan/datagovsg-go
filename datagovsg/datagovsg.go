@@ -6,11 +6,12 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 )
 
 const (
 	// The base URL for Data.gov.sg API.
-	baseURL = "https://api.data.gov.sg/v1"
+	baseURL = "https://api.data.gov.sg"
 )
 
 var (
@@ -39,22 +40,33 @@ type ErrorResponse struct {
 // Client is a simple http.Client wrapper.
 // TODO: Use http.DefaultClient?
 type Client struct {
-	Client  *http.Client
-	BaseURL string
+	Client *http.Client
+	URL    *url.URL
 }
 
 // NewClient returns a new Client object.
-func NewClient() *Client {
-	return &Client{
-		Client:  http.DefaultClient,
-		BaseURL: baseURL,
+func NewClient() (*Client, error) {
+	u, err := url.Parse(baseURL)
+	if err != nil {
+		return nil, err
 	}
+	c := &Client{
+		Client: http.DefaultClient,
+		URL:    u,
+	}
+	return c, nil
 }
 
 // Get executes a HTTP GET request.
-func (c *Client) Get(url string) ([]byte, error) {
+func (c *Client) Get(path string) ([]byte, error) {
+	// Parse URL
+	u, err := c.URL.Parse(path)
+	if err != nil {
+		return nil, err
+	}
+
 	// Create request
-	req, err := http.NewRequest("GET", url, nil)
+	req, err := http.NewRequest("GET", u.String(), nil)
 	if err != nil {
 		return nil, err
 	}

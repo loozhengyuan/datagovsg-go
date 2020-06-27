@@ -39,17 +39,20 @@ func TestClientGet(t *testing.T) {
 			})
 			server := httptest.NewServer(handler)
 
-			// Execute request
-			client := NewClient()
-			got, err := client.Get(server.URL)
-			want := tc.body
+			// Create client
+			client, err := NewClient()
+			if err != nil {
+				t.Errorf("expected no errors but got: %v", err)
+			}
 
-			// Assert error value
+			// Execute request
+			got, err := client.Get(server.URL)
 			if !errors.Is(err, tc.err) {
 				t.Errorf("expected error '%v' but got: %v", tc.err, err)
 			}
 
 			// Assert response body if non-error responses
+			want := tc.body
 			if got != nil && string(got) != want {
 				t.Errorf("got %+v want %+v", string(got), want)
 			}
