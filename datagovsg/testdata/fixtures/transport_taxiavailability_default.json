@@ -1,0 +1,35 @@
+{
+  "type": "FeatureCollection",
+  "crs": {
+    "type": "link",
+    "properties": {
+      "href": "http://spatialreference.org/ref/epsg/4326/ogcwkt/",
+      "type": "ogcwkt"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            103.6409,
+            1.31675
+          ],
+          [
+            104.00568,
+            1.37304
+          ]
+        ]
+      },
+      "properties": {
+        "timestamp": "2019-12-31T23:59:15+08:00",
+        "taxi_count": 5093,
+        "api_info": {
+          "status": "healthy"
+        }
+      }
+    }
+  ]
+}
