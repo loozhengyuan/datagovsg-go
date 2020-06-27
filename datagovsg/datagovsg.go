@@ -40,31 +40,20 @@ type ErrorResponse struct {
 // Client is a simple http.Client wrapper.
 // TODO: Use http.DefaultClient?
 type Client struct {
-	Client *http.Client
-	URL    *url.URL
+	Client  *http.Client
+	BaseURL string
 }
 
 // NewClient returns a new Client object.
-func NewClient() (*Client, error) {
-	u, err := url.Parse(baseURL)
-	if err != nil {
-		return nil, err
+func NewClient() *Client {
+	return &Client{
+		Client:  http.DefaultClient,
+		BaseURL: baseURL,
 	}
-	c := &Client{
-		Client: http.DefaultClient,
-		URL:    u,
-	}
-	return c, nil
 }
 
 // Get executes a HTTP GET request.
-func (c *Client) Get(path string) ([]byte, error) {
-	// Parse URL
-	u, err := c.URL.Parse(path)
-	if err != nil {
-		return nil, err
-	}
-
+func (c *Client) Get(u *url.URL) ([]byte, error) {
 	// Create request
 	req, err := http.NewRequest("GET", u.String(), nil)
 	if err != nil {

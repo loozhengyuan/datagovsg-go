@@ -2,6 +2,7 @@ package datagovsg
 
 import (
 	"encoding/json"
+	"net/url"
 )
 
 // TrafficImages is the resource representing the Traffic Images.
@@ -65,11 +66,15 @@ type TrafficImagesCameraImageMetadata struct {
 // GetTrafficImages returns the latest images from traffic
 // cameras all around Singapore.
 func (c *Client) GetTrafficImages() (*TrafficImages, error) {
-	// Set url path
+	// Parse URL
 	path := "/v1/transport/traffic-images/"
+	u, err := url.Parse(c.BaseURL + path)
+	if err != nil {
+		return nil, err
+	}
 
 	// Execute request
-	b, err := c.Get(path)
+	b, err := c.Get(u)
 	if err != nil {
 		return nil, err
 	}

@@ -45,19 +45,9 @@ func TestClient_GetTrafficImages(t *testing.T) {
 			})
 			server := httptest.NewServer(handler)
 
-			// Create client
-			client, err := NewClient()
-			if err != nil {
-				t.Errorf("expected no errors but got: %v", err)
-			}
-
-			// Mock client's base URL
-			client.URL, err = client.URL.Parse(server.URL)
-			if err != nil {
-				t.Errorf("expected no errors but got: %v", err)
-			}
-
 			// Execute request
+			client := NewClient()
+			client.BaseURL = server.URL
 			got, err := client.GetTrafficImages()
 			if err != nil {
 				t.Errorf("expected no errors but got: %v", err)

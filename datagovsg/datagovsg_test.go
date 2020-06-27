@@ -4,6 +4,7 @@ import (
 	"errors"
 	"net/http"
 	"net/http/httptest"
+	"net/url"
 	"testing"
 )
 
@@ -39,14 +40,15 @@ func TestClientGet(t *testing.T) {
 			})
 			server := httptest.NewServer(handler)
 
-			// Create client
-			client, err := NewClient()
+			// Parse URL
+			u, err := url.Parse(server.URL)
 			if err != nil {
-				t.Errorf("expected no errors but got: %v", err)
+				t.Errorf("error parsing url: %v", err)
 			}
 
 			// Execute request
-			got, err := client.Get(server.URL)
+			client := NewClient()
+			got, err := client.Get(u)
 			if !errors.Is(err, tc.err) {
 				t.Errorf("expected error '%v' but got: %v", tc.err, err)
 			}

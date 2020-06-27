@@ -2,6 +2,7 @@ package datagovsg
 
 import (
 	"encoding/json"
+	"net/url"
 )
 
 // CarparkAvailability is the resource representing the Carpark Availability.
@@ -48,11 +49,15 @@ type CarparkAvailabilityCarparkInfo struct {
 // GetCarparkAvailability returns the lot availability across all carparks
 // in Singapore.
 func (c *Client) GetCarparkAvailability() (*CarparkAvailability, error) {
-	// Set url path
+	// Parse URL
 	path := "/v1/transport/carpark-availability/"
+	u, err := url.Parse(c.BaseURL + path)
+	if err != nil {
+		return nil, err
+	}
 
 	// Execute request
-	b, err := c.Get(path)
+	b, err := c.Get(u)
 	if err != nil {
 		return nil, err
 	}
