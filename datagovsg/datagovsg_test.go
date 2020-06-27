@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func TestClientGet(t *testing.T) {
+func TestClient_Get(t *testing.T) {
 	// Create test cases
 	cases := []struct {
 		name   string
