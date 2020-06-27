@@ -1,3 +1,4 @@
+// Package datagovsg provides a wrapper for real-time APIs provided by Data.gov.sg.
 package datagovsg
 
 import (
