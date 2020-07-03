@@ -1,6 +1,7 @@
 # Data.gov.sg
 
 [![API Reference](https://img.shields.io/static/v1?label=godev&message=reference&color=00add8)](https://pkg.go.dev/github.com/loozhengyuan/datagovsg-go/datagovsg?tab=doc)
+[![Go Report Card](https://goreportcard.com/badge/github.com/loozhengyuan/datagovsg-go)](https://goreportcard.com/report/github.com/loozhengyuan/datagovsg-go)
 ![Main Workflow](https://github.com/loozhengyuan/datagovsg-go/workflows/Main%20Workflow/badge.svg)
 
 Go wrapper for Data.gov.sg real-time [APIs](https://data.gov.sg/developer).
