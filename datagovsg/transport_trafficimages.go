@@ -17,7 +17,7 @@ type TrafficImagesItem struct {
 	// Time of acquisition of data
 	Timestamp string `json:"timestamp"`
 
-	// Camera infromation and images
+	// Camera information and images
 	Cameras []TrafficImagesCamera `json:"cameras"`
 }
 
