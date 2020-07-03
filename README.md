@@ -8,7 +8,7 @@ Go wrapper for Data.gov.sg real-time [APIs](https://data.gov.sg/developer).
 
 The list of supported datasets are as follows:
 
-|Category|Dataset|Status|
+|Category|Dataset|Supported|
 |---|---|---|
 |Transport|[Traffic Images](https://data.gov.sg/dataset/traffic-images)|✅|
 |Transport|[Taxi Availability](https://data.gov.sg/dataset/taxi-availability)|✅|
