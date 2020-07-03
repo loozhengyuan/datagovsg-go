@@ -8,13 +8,13 @@ Go wrapper for Data.gov.sg real-time [APIs](https://data.gov.sg/developer).
 
 The list of supported datasets are as follows:
 
-|Category|Dataset|Supported|
-|---|---|---|
-|Transport|[Traffic Images](https://data.gov.sg/dataset/traffic-images)|✅|
-|Transport|[Taxi Availability](https://data.gov.sg/dataset/taxi-availability)|✅|
-|Transport|[Carpark Availability](https://data.gov.sg/dataset/carpark-availability)|✅|
-|Environment|[PM2.5](https://data.gov.sg/dataset/pm2-5)|✅|
-|Environment|[PSI](https://data.gov.sg/dataset/psi)|✅|
+|Category|Dataset|Endpoint|Supported|
+|---|---|---|---|
+|Transport|[Traffic Images](https://data.gov.sg/dataset/traffic-images)|`/v1/transport/traffic-images`|✅|
+|Transport|[Taxi Availability](https://data.gov.sg/dataset/taxi-availability)|`/v1/transport/taxi-availability`|✅|
+|Transport|[Carpark Availability](https://data.gov.sg/dataset/carpark-availability)|`/v1/transport/carpark-availability`|✅|
+|Environment|[PM2.5](https://data.gov.sg/dataset/pm2-5)|`/v1/environment/pm25`|✅|
+|Environment|[PSI](https://data.gov.sg/dataset/psi)|`/v1/environment/psi`|✅|
 
 ## Installation
 
