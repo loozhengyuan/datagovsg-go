@@ -1,5 +1,6 @@
 # Data.gov.sg
 
+![Godoc Reference](https://godoc.org/github.com/loozhengyuan/datagovsg-go/datagovsg?status.svg)
 ![Main Workflow](https://github.com/loozhengyuan/datagovsg-go/workflows/Main%20Workflow/badge.svg)
 
 Go wrapper for Data.gov.sg real-time [APIs](https://data.gov.sg/developer).
