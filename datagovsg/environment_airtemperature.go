@@ -69,7 +69,7 @@ type AirTemperatureItemReading struct {
 	Value float64 `json:"value"`
 }
 
-// GetAirTemperature returns the AirTemperature information.
+// GetAirTemperature returns the air temperature information.
 func (c *Client) GetAirTemperature(options ...*QueryOption) (*AirTemperature, error) {
 	// Parse URL
 	path := "/v1/environment/air-temperature/"
