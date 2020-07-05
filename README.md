@@ -24,7 +24,7 @@ The list of supported datasets are as follows:
 |Environment|[Wind Direction](https://data.gov.sg/dataset/realtime-weather-readings?resource_id=5dcf8aa5-cf6a-44e4-b359-1173eecfdf4c)|`/v1/environment/wind-direction`|✅|
 |Environment|[Wind Speed](https://data.gov.sg/dataset/realtime-weather-readings?resource_id=16035f22-37b4-4a5c-b024-ca2381f11b48)|`/v1/environment/wind-speed`|✅|
 |Environment|[2-hour Weather Forecast](https://data.gov.sg/dataset/weather-forecast?resource_id=571ef5fb-ed31-48b2-85c9-61677de42ca9)|`/v1/environment/2-hour-weather-forecast`|✅|
-|Environment|[24-hour Weather Forecast](https://data.gov.sg/dataset/weather-forecast?resource_id=9a8bd97e-0e38-46b7-bc39-9a2cb4a53a62)|`/v1/environment/24-hour-weather-forecast`|🚧|
+|Environment|[24-hour Weather Forecast](https://data.gov.sg/dataset/weather-forecast?resource_id=9a8bd97e-0e38-46b7-bc39-9a2cb4a53a62)|`/v1/environment/24-hour-weather-forecast`|✅|
 |Environment|[4-day Weather Forecast](https://data.gov.sg/dataset/weather-forecast?resource_id=4df6d890-f23e-47f0-add1-fd6d580447d1)|`/v1/environment/4-day-weather-forecast`|🚧|
 |Technology|[IPOS Design Applications](https://data.gov.sg/dataset/ipos-apis?resource_id=adf6222f-955b-4a76-892f-802a396844a1)|`/v1/technology/ipos/designs`|🚧|
 |Technology|[IPOS Trademark Applications](https://data.gov.sg/dataset/ipos-apis?resource_id=1522db0e-808b-48ea-9869-fe5adc566585)|`/v1/technology/ipos/trademarks`|🚧|
