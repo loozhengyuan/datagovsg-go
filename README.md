@@ -114,5 +114,4 @@ func main() {
 
 [GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
 
-All test data used in this package is licensed under the [Singapore Open Data License](https://data.gov.sg/open-data-licence), including those that you intend to retrieve using this package.
-The rest of the package is licensed under [GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/).
+All data, including those used as test fixtures and those that you intend to retrieve using this package, are licensed under the [Singapore Open Data License](https://data.gov.sg/open-data-licence). All other aspects of the package is licensed under [GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/).
