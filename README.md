@@ -20,7 +20,7 @@ The list of supported datasets are as follows:
 |Environment|[Ultra-violet Index](https://data.gov.sg/dataset/ultraviolet-index-uvi?resource_id=6246c980-21d4-441f-a1d0-b321e2085420)|`/v1/environment/uv-index`|✅|
 |Environment|[Air Temperature](https://data.gov.sg/dataset/realtime-weather-readings?resource_id=17494bed-23e9-4b3b-ae89-232f87987163)|`/v1/environment/air-temperature`|✅|
 |Environment|[Rainfall](https://data.gov.sg/dataset/realtime-weather-readings?resource_id=8bd37e06-cdd7-4ca4-9ad8-5754eb70a33d)|`/v1/environment/rainfall`|✅|
-|Environment|[Relative Humidity](https://data.gov.sg/dataset/realtime-weather-readings?resource_id=59eb2883-2ceb-4d16-85f0-7e3a3176ef46)|`/v1/environment/relative-humidity`|🚧|
+|Environment|[Relative Humidity](https://data.gov.sg/dataset/realtime-weather-readings?resource_id=59eb2883-2ceb-4d16-85f0-7e3a3176ef46)|`/v1/environment/relative-humidity`|✅|
 |Environment|[Wind Direction](https://data.gov.sg/dataset/realtime-weather-readings?resource_id=5dcf8aa5-cf6a-44e4-b359-1173eecfdf4c)|`/v1/environment/wind-direction`|🚧|
 |Environment|[Wind Speed](https://data.gov.sg/dataset/realtime-weather-readings?resource_id=16035f22-37b4-4a5c-b024-ca2381f11b48)|`/v1/environment/wind-speed`|🚧|
 |Environment|[2-hour Weather Forecast](https://data.gov.sg/dataset/weather-forecast?resource_id=571ef5fb-ed31-48b2-85c9-61677de42ca9)|`/v1/environment/2-hour-weather-forecast`|🚧|
