@@ -46,11 +46,17 @@ import "github.com/loozhengyuan/datagovsg-go/datagovsg"
 
 ## Usage
 
+For all supported APIs, the wrapper method is accessible using the `GetXxx` convention. For example, to fetch the latest traffic images, one would call the `GetTrafficImages()` method.
+
+### Fetching the latest data
+
+To illustrate this example, let us assume that we intend fetch the latest [traffic images](https://data.gov.sg/dataset/traffic-images) from the API.
+
 ```go
 package main
 
 import (
-	"log"
+	"fmt"
 
 	"github.com/loozhengyuan/datagovsg-go/datagovsg"
 )
@@ -60,13 +66,45 @@ func main() {
 	c := datagovsg.NewClient()
 
 	// Fetch latest traffic images
-	img, err := c.GetTrafficImages()
-	if err != nil {
-		log.Fatalf("error: %v\n", err)
-	}
+	img, _ := c.GetTrafficImages()
 	for _, camera := range img.Items {
 		for _, images := range camera.Cameras {
-			log.Println(images.Image)
+			fmt.Println(images.Image)
+		}
+	}
+}
+```
+
+### Using the `datagovsg.QueryOption`
+
+Most APIs allow you to pass a `date_time` or `date` parameter to retrieve data at a certain point in time. To do this, one can pass the `datagovsg.QueryOption` as a variadic argument when calling the respective API methods. Note that the client does not validate these options and will pass them to the API directly.
+
+Using the above example, we will modify the above code to return the traffic images at `2020-05-01T08:03:00` using the `date_time` parameter:
+
+```go
+package main
+
+import (
+	"fmt"
+
+	"github.com/loozhengyuan/datagovsg-go/datagovsg"
+)
+
+func main() {
+	// Create api client
+	c := datagovsg.NewClient()
+
+	// Fetch traffic images at point in time
+	// using datagovsg.QueryOption
+	img, _ := c.GetTrafficImages(
+		&datagovsg.QueryOption{
+			Key:   "date_time",
+			Value: "2020-05-01T08:03:00",
+		},
+	)
+	for _, camera := range img.Items {
+		for _, images := range camera.Cameras {
+			fmt.Println(images.Image)
 		}
 	}
 }
