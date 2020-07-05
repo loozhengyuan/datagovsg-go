@@ -7,9 +7,9 @@ import (
 
 // PSI is the resource representing the PSI information.
 type PSI struct {
-	APIInfo        APIInfo              `json:"api_info"`
-	RegionMetadata []PM25RegionMetadata `json:"region_metadata"`
-	Items          []PSIItem            `json:"items"`
+	APIInfo        APIInfo             `json:"api_info"`
+	RegionMetadata []PSIRegionMetadata `json:"region_metadata"`
+	Items          []PSIItem           `json:"items"`
 }
 
 // PSIRegionMetadata represents metadata about each region.
