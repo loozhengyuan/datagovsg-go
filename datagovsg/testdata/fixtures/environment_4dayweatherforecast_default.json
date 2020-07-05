@@ -1,0 +1,93 @@
+{
+    "items": [
+        {
+            "update_timestamp": "2020-01-05T04:32:14+08:00",
+            "timestamp": "2019-12-31T16:56:00+08:00",
+            "forecasts": [
+                {
+                    "temperature": {
+                        "low": 24,
+                        "high": 33
+                    },
+                    "date": "2020-01-01",
+                    "forecast": "Windy. ",
+                    "relative_humidity": {
+                        "low": 55,
+                        "high": 90
+                    },
+                    "wind": {
+                        "speed": {
+                            "low": 15,
+                            "high": 30
+                        },
+                        "direction": "NNE"
+                    },
+                    "timestamp": "2020-01-01T00:00:00+08:00"
+                },
+                {
+                    "temperature": {
+                        "low": 23,
+                        "high": 32
+                    },
+                    "date": "2020-01-02",
+                    "forecast": "Windy with periods of showers.",
+                    "relative_humidity": {
+                        "low": 60,
+                        "high": 95
+                    },
+                    "wind": {
+                        "speed": {
+                            "low": 15,
+                            "high": 30
+                        },
+                        "direction": "NNE"
+                    },
+                    "timestamp": "2020-01-02T00:00:00+08:00"
+                },
+                {
+                    "temperature": {
+                        "low": 23,
+                        "high": 31
+                    },
+                    "date": "2020-01-03",
+                    "forecast": "Windy with periods of showers.",
+                    "relative_humidity": {
+                        "low": 60,
+                        "high": 95
+                    },
+                    "wind": {
+                        "speed": {
+                            "low": 15,
+                            "high": 25
+                        },
+                        "direction": "NNE"
+                    },
+                    "timestamp": "2020-01-03T00:00:00+08:00"
+                },
+                {
+                    "temperature": {
+                        "low": 23,
+                        "high": 31
+                    },
+                    "date": "2020-01-04",
+                    "forecast": "Windy with periods of showers.",
+                    "relative_humidity": {
+                        "low": 60,
+                        "high": 95
+                    },
+                    "wind": {
+                        "speed": {
+                            "low": 15,
+                            "high": 25
+                        },
+                        "direction": "NNE"
+                    },
+                    "timestamp": "2020-01-04T00:00:00+08:00"
+                }
+            ]
+        }
+    ],
+    "api_info": {
+        "status": "healthy"
+    }
+}
