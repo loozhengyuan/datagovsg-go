@@ -7,8 +7,9 @@ import (
 
 // PM25 is the resource representing the PM2.5 information.
 type PM25 struct {
-	APIInfo APIInfo    `json:"api_info"`
-	Items   []PM25Item `json:"items"`
+	APIInfo        APIInfo              `json:"api_info"`
+	RegionMetadata []PM25RegionMetadata `json:"region_metadata"`
+	Items          []PM25Item           `json:"items"`
 }
 
 // PM25RegionMetadata represents metadata about each region.
