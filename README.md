@@ -1,6 +1,6 @@
 # Data.gov.sg
 
-[![API Reference](https://img.shields.io/static/v1?label=godev&message=reference&color=00add8)](https://pkg.go.dev/github.com/loozhengyuan/datagovsg-go/datagovsg?tab=doc)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/loozhengyuan/datagovsg-go/datagovsg)](https://pkg.go.dev/github.com/loozhengyuan/datagovsg-go/datagovsg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/loozhengyuan/datagovsg-go)](https://goreportcard.com/report/github.com/loozhengyuan/datagovsg-go)
 ![Main Workflow](https://github.com/loozhengyuan/datagovsg-go/workflows/Main%20Workflow/badge.svg)
 
