@@ -2,7 +2,7 @@
 
 [![PkgGoDev](https://pkg.go.dev/badge/github.com/loozhengyuan/datagovsg-go/datagovsg)](https://pkg.go.dev/github.com/loozhengyuan/datagovsg-go/datagovsg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/loozhengyuan/datagovsg-go)](https://goreportcard.com/report/github.com/loozhengyuan/datagovsg-go)
-![Main Workflow](https://github.com/loozhengyuan/datagovsg-go/workflows/Main%20Workflow/badge.svg)
+![ci](https://github.com/loozhengyuan/datagovsg-go/workflows/ci/badge.svg)
 
 Go wrapper for Data.gov.sg real-time [APIs](https://data.gov.sg/developer).
 
